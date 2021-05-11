@@ -1,0 +1,23 @@
+.PHONY: clear-%-results
+clear-%-results:
+	$echo "Clearing results for $*"
+	find . -name "$*_results.txt" -exec rm {} \;
+
+.PHONY: run-%
+run-%:
+	@echo "Running $*"
+	./run_all_tools.sh run_$*
+
+.PHONY: run-all
+run-all:
+	@echo "Running all tools"
+	./run_all_tools.sh
+
+.PHONY: clear-all-results
+clear-all-results:
+	@echo "Clearing all results"
+	find . -name "*_results.txt" -exec rm {} \;
+
+.PHONY: generate-readme
+generate-readme:
+	@python3 generate_readme_tables.py
