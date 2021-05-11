@@ -1,6 +1,0 @@
-Failed to run the process ...
-{
-  "ok": false,
-  "error": "Internal server error",
-  "path": "/project"
-}

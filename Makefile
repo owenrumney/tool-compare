@@ -28,4 +28,4 @@ clear-plans:
 
 .PHONY: generate-readme
 generate-readme:
-	@python3 generate_readme_tables.py
+	@python3 generate_readme_tables.py > README.md

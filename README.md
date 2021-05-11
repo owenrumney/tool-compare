@@ -1,34 +1,10 @@
-![MIT License](https://img.shields.io/github/license/iacsecurity/tool-compare)
-![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
-
-# tool-compare
-In the world of infrastructure-as-code security there are several tools for users to choose from.
-The goal of this repository is to help compare the different options so that users can
-choose the tool that best fits their own needs.
-
-## What tools are there?
-|     | [Checkov](https://github.com/bridgecrewio/checkov) | [Indeni Cloudrail](https://www.indeni.com/cloudrail) | [Kics](https://github.com/Checkmarx/kics) | [Snyk](https://snyk.io/) | [Terrascan](https://github.com/accurics/terrascan) | [Tfsec](https://github.com/tfsec/tfsec) |
-|----|----|----|----|----|----|----|
-|License|OSS|Freemium|OSS|Freemium|OSS|OSS|
-  
-(there are others, anyone can add to this list, sorted A-Z)
-
-## How does this repo work?
-This repository has a set of test-cases and a main script, called [run_all_tools.sh](/run_all_tools.sh) 
-which runs the above-listed tools against each of the test-cases. This allows any potential user
-to see what the tool can do, and how it compares, before even installing it.
-
-## Test case catch rate
-The tables below list test cases included in this repository. For each case, it shows which tools
-are able to catch it specifically, and which don't.
-
 ### Summary
 Last update: 2021-05-11
 
 |     | Checkov | Indeni Cloudrail | Kics | Snyk | Terrascan | Tfsec |
 |----|----|----|----|----|----|----|
-|Tested Version|2.0.135|1.2.130|1.3.0|1.563.0|1.4.0|0.39.29|
-|Total Catch Rate|66%|69%|31%|43%|16%|35%|
+|Tested Version|2.0.135[0m[0m[0m|1.2.161|1.3.0|1.563.0|1.5.1|0.39.32|
+|Total Catch Rate|66%|69%|31%|43%|16%|34%|
 
 ### test-cases/terraform/aws/best-practices
 | Test Case | Checkov | Indeni Cloudrail | Kics | Snyk | Terrascan | Tfsec |
@@ -105,11 +81,10 @@ Last update: 2021-05-11
 |[iam_user_inline_policy_attach](test-cases/terraform/aws/iam/iam-entities/iam_user_inline_policy_attach)|:white_check_mark:|:white_check_mark:|:x:|:white_check_mark:|:x:|:x:|
 |[iam_user_managed_policy_direct_attachmen..](test-cases/terraform/aws/iam/iam-entities/iam_user_managed_policy_direct_attachment)|:white_check_mark:|:white_check_mark:|:x:|:white_check_mark:|:x:|:x:|
 |[passrole_and_lambda_permissions_cause_pr..](test-cases/terraform/aws/iam/iam-entities/passrole_and_lambda_permissions_cause_priv_escalation)|:x:|:white_check_mark:|:x:|:x:|:x:|:x:|
-|[password_policy_not_locked_down](test-cases/terraform/aws/iam/iam-entities/password_policy_not_locked_down)|:white_check_mark:|:white_check_mark:|:x:|:white_check_mark:|:x:|:white_check_mark:|
 |[policy-too-broad](test-cases/terraform/aws/iam/iam-entities/policy-too-broad)|:x:|:white_check_mark:|:x:|:x:|:x:|:x:|
 |[policy_missing_principal](test-cases/terraform/aws/iam/iam-entities/policy_missing_principal)|:x:|:white_check_mark:|:x:|:x:|:x:|:x:|
 |[public_and_private_ec2_same_role](test-cases/terraform/aws/iam/iam-entities/public_and_private_ec2_same_role)|:x:|:white_check_mark:|:x:|:x:|:x:|:x:|
-|Category Catch Rate|50%|100%|0%|38%|0%|12%|
+|Category Catch Rate|43%|100%|0%|29%|0%|0%|
 
 ### test-cases/terraform/aws/iam/resource-authentication
 | Test Case | Checkov | Indeni Cloudrail | Kics | Snyk | Terrascan | Tfsec |
@@ -165,13 +140,4 @@ Last update: 2021-05-11
 |[sqs-vpc-endpoint-without-dns-resolution](test-cases/terraform/aws/networking/vpc-endpoints/sqs-vpc-endpoint-without-dns-resolution)|:x:|:white_check_mark:|:x:|:x:|:x:|:x:|
 |Category Catch Rate|0%|100%|0%|0%|0%|0%|
 
-## Contributing
-Anyone can contribute to this repository. The main areas of contribution are:
 
-* Adding an additional tool - simply add the tool to this readme and the `run_all_tools.sh` script. Then,
-execute that script and add all of its results as part of your PR. That's it, you're good to go.
-  
-* Adding test-cases - you can add the test case in the correct spot in the tree under [test-cases](/test-cases)
-and run the `run_all_tools.sh` script against it. Make sure to include all of the tools' results as part of your PR.
-
-NOTE: This repository has been initiated by @yi2020, CEO & Founder of Indeni, the company behind Indeni Cloudrail. While this was initiated by an employee of a vendor in the community, the intention is for this repository to be neutral and truly serve as a non-biased comparison tool of products offered. Contributions that help users make that choice, and are unbiased in nature, are very welcome. The aspiration is that over time all vendors will become equal contributors in this repository.
