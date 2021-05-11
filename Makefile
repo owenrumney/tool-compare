@@ -1,3 +1,5 @@
+default: run-all
+
 .PHONY: clear-%-results
 clear-%-results:
 	$echo "Clearing results for $*"
