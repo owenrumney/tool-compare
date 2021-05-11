@@ -4,6 +4,7 @@
 function run_checkov {
   echo Now running Checkov on all cases
   docker pull bridgecrew/checkov:latest
+
   docker run -t -v $PWD:/tf bridgecrew/checkov --version >version_checkov.txt
   find . -name "main.tf" -exec dirname {} \; | grep -v "\.terraform" | while read -r test_case; do
     echo $test_case
@@ -155,4 +156,5 @@ run_tfsec)
   run_all
   exit
   ;;
+
 esac

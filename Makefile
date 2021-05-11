@@ -1,3 +1,4 @@
+
 default: run-all
 
 .PHONY: clear-%-results
@@ -18,12 +19,14 @@ run-all:
 .PHONY: clear-all-results
 clear-all-results:
 	@echo "Clearing all results"
+
 	find . -name "*_results.txt" -print -delete
 
 .PHONY: clear-plans
 clear-plans:
 	@echo "Clearing all results"
 	find . -name "plan.out" -print -delete;
+
 
 .PHONY: generate-readme
 generate-readme:
